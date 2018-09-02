@@ -70,8 +70,8 @@ SUBTITLES = get_boolean_setting('Extract_Subtitles')
 PROFILE = xbmc.translatePath(
     REAL_SETTINGS.getAddonInfo('profile')).decode("utf-8")
 
-BU = 'srf'
-HOST_URL = 'https://www.srf.ch'
+BU = 'rts'
+HOST_URL = 'https://www.rts.ch'
 TIMEOUT = 30
 CONTENT_TYPE = 'videos'
 DEBUG = get_boolean_setting('Enable_Debugging')
