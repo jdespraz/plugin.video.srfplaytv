@@ -18,14 +18,14 @@
     <platform>all</platform>
     <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
     <forum>https://forum.kodi.tv/showthread.php?tid=331129</forum>
-    <website>https://www.srf.ch/play/tv</website>
+    <website>https://www.rts.ch/play/tv</website>
     <email>seileralex@gmail.com</email>
-    <source>https://github.com/goggle/plugin.video.srfplaytv</source>
+    <source>https://github.com/jdespraz/plugin.video.srfplaytv</source>
     <news>v1.1.0 (2018-07-01)
      - Add support for Radio SRF 3 video livestreams.
 
     v1.0.1 (2018-06-07)
-     - Only list srf.ch live events if livestream is available.
+     - Only list rts.ch live events if livestream is available.
      - Ignore invalid video ids in episode menu.
      - Translate 'Next page' string.
     

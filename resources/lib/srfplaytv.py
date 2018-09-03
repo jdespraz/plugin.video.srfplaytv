@@ -977,16 +977,16 @@ class SRFPlayTV(object):
                 return match.group('channel_id')
             return None
 
-        channels = ['srf-1', 'srf-2', 'srf-info']
+        channels = ['rts-1', 'rts-2', 'rts-info']
         for channel in channels:
-            url = 'https://www.srf.ch/livestream/player/%s' % channel
+            url = 'https://www.rts.ch/livestream/player/%s' % channel
             webpage = self.open_url(url, use_cache=False)
             channel_id = extract_channel_id(webpage)
             if not channel_id:
                 log('build_tv_menu: Could not extract channel id for %s.'
                     % channel)
                 continue
-            urn = 'urn:srf:video:%s' % channel_id
+            urn = 'urn:rts:video:%s' % channel_id
             json_url = ('https://il.srgssr.ch/integrationlayer/2.0/'
                         'mediaComposition/byUrn/%s.json') % urn
             info_json = json.loads(self.open_url(json_url, use_cache=False))
@@ -1004,7 +1004,7 @@ class SRFPlayTV(object):
         """
         def get_live_ids():
             """
-            Downloads the webpage 'https://www.srf.ch' and scrapes it for
+            Downloads the webpage 'https://www.rts.ch' and scrapes it for
             possible livestreams. If some live events were found, a list
             of live ids will be returned, otherwise an empty list.
             """
@@ -1023,7 +1023,7 @@ class SRFPlayTV(object):
             """
             Returns a list of Radio SRF 3 video streams.
             """
-            url = 'https://www.%s.ch/radio-srf-3' % BU
+            url = 'https://www.%s.ch/radio-rts-3' % BU
             webpage = self.open_url(url, use_cache=False)
             video_id_regex = r'''(?x)
                                    popupvideoplayer\?id=
@@ -1046,7 +1046,7 @@ class SRFPlayTV(object):
         live_ids = get_live_ids()
         for lid in live_ids:
             api_url = ('https://event.api.swisstxt.ch/v1/events/'
-                       'srf/byEventItemId/?eids=%s') % lid
+                       'rts/byEventItemId/?eids=%s') % lid
             try:
                 live_json = json.loads(self.open_url(api_url))
                 entry = live_json[0]
